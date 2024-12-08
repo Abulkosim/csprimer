@@ -26,3 +26,16 @@ for n, x in cases:
   assert integer_to_roman(n) == x
 
 print("\033[92mAll test cases passed!\033[0m")
+
+# Solution to Integer to Roman leetcode problem: 
+
+class Solution(object):
+    def intToRoman(self, num):
+        """
+        :type num: int
+        :rtype: str
+        """
+        for d, r in parts: 
+          if d <= num: 
+            return r + self.intToRoman(num - d)
+        return ""
