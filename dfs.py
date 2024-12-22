@@ -45,15 +45,3 @@ def dfs_graph(graph, start):
             for neighbor in graph[start]:
                 if neighbor not in visited:
                     stack.append(neighbor)
-
-                    # Example usage
-
-
-graph = {
-    "A": ["B", "C"],
-    "B": ["A", "D", "E"],
-    "C": ["A", "F"],
-    "D": ["B"],
-    "E": ["B", "F"],
-    "F": ["C", "E"],
-}
