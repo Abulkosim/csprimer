@@ -15,11 +15,17 @@ def dfs(root, target):
     dfs(root.right, target)
 
 
-if __name__ == "__main__":
-    root = Node(1)
-    root.left = Node(2)
-    root.right = Node(3)
-    root.left.left = Node(4)
-    root.left.right = Node(5)
+def dfs_iter(root):
+    if root is None:
+        return
 
-    result = dfs(root, 5)
+    stack = [root]
+
+    while stack:
+        node = stack.pop()
+        print(node.value)
+
+        if node.right:
+            stack.append(node.right)
+        if node.left:
+            stack.append(node.left)
