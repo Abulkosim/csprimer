@@ -19,3 +19,41 @@ function breadthFirstSearch(graph: Map<number, number[]>, start: number): number
 
   return result;
 }
+
+function dfsRecursive(
+  graph: Record<string, string[]>,
+  start: string,
+  visited: Set<string> = new Set()
+): void {
+  visited.add(start);
+  process.stdout.write(start + ' ');
+
+  for (const neighbor of graph[start]) {
+    if (!visited.has(neighbor)) {
+      dfsRecursive(graph, neighbor, visited);
+    }
+  }
+}
+
+console.log("\nDFS (recursive) starting from A:");
+dfsRecursive(graph, "A"); 
+
+function dfsIterative(graph: Record<string, string[]>, start: string): void {
+  const visited = new Set<string>();
+  const stack: string[] = [start];
+
+  while (stack.length > 0) {
+    const node = stack.pop()!;
+    if (!visited.has(node)) {
+      visited.add(node);
+      process.stdout.write(node + ' ');
+
+      const neighbors = graph[node].slice().reverse();
+      for (const neighbor of neighbors) {
+        if (!visited.has(neighbor)) {
+          stack.push(neighbor);
+        }
+      }
+    }
+  }
+}
