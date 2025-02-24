@@ -77,4 +77,21 @@ Y = "AEDFHR"
 print(lcs_memo(X, Y))  # 3 (LCS is "ADH")
  
  
- 
+# Bottom up (tabulation) 
+
+def fib_tab(n): 
+
+	if n <= 1: 
+		return n
+
+	dp = [0] * (n + 1) 
+
+	dp[0] = 0
+	dp[1] = 1
+
+	for i in range(2, n+1): 
+		dp[i] = dp[i - 1] + dp[i + 1]
+
+	return dp[n]
+
+print(fib_tab(10))
