@@ -4,7 +4,6 @@
 // 		let minLength = Math.min(word1.length, word2.length);
 //     let maxLength = Math.max(word1.length, word2.length);
 //     let mergedResult: string[] = [];
-
 //     for (let i = 0; i < maxLength; i++) {
 //         if (i < minLength) {
 //             mergedResult.push(word1[i]);
@@ -16,28 +15,21 @@
 //         }
 // 				console.log(mergedResult);
 //     }
-
 // 		console.log(mergedResult.join(""));
 //     return mergedResult.join("");
 // };
-
 // mergeAlternately("dfe", "beebda"); 
-
-
-function mergeAlternately(w1: string, w2: string): string {
-  let mergedResult = '';
-  let max = Math.max(w1.length, w2.length);
-
-  for (let i = 0; i < max; i++) {
-    if (i < w1.length) {
-      mergedResult += w1[i]
+function mergeAlternately(w1, w2) {
+    var mergedResult = '';
+    var max = Math.max(w1.length, w2.length);
+    for (var i = 0; i < max; i++) {
+        if (i < w1.length) {
+            mergedResult += w1[i];
+        }
+        if (i < w2.length) {
+            mergedResult += w2[i];
+        }
     }
-    if (i < w2.length) {
-      mergedResult += w2[i]
-    }
-  }
-
-  return mergedResult;
+    return mergedResult;
 }
-
 console.log("dbfeeebda" === mergeAlternately("dfe", "beebda"));
