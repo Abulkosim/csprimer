@@ -1,3 +1,6 @@
 [submodule "algo"]
 	path = algo
 	url = https://github.com/Abulkosim/algo.git
+[submodule "py"]
+	path = py
+	url = https://github.com/Abulkosim/py.git
